@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div class="fragmentClass" th:fragment="parent">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsum enim modi corporis, dolore aliquid tempora. Magni voluptatibus veritatis quaerat eos fugit architecto, ullam inventore consequatur molestias minus iusto modi!</p>
+    </div>
+    <!--for the parameter-->
+    <div class="fragmentClass" th:fragment="parentparameter(x,y)">
+        <p>This is the pass value in parameter through fragment </p>
+        <h6><span th:text="${x}"></span></h6>
+        <h6 th:text="${y}"></h6>
+    </div>
+
+    <div class="fragementTestClass" th:fragment="passContent(content)">
+       <h>This is Example of Pass content (HTML) through fragment</h>
+       <div class="Content" th:replace="${content}">
+            
+       </div>
+    </div>  
+    <div class="ConditionTestFragementClass" th:fragment="Test">
+        <h1>This is testing fragement students </h1>
+    </div>  
+</body>
+</html>

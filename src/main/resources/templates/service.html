@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+</head>
+<body>
+    <h1>This is Services  page </h1>
+    <!--using fragment insert -->
+<!--
+    <div class="Hostclass" th:replace="~{base :: parent}">
+    </div> 
+-->
+    <!--pass parameter using fragment -->
+        <!-- <div class="Host-tag" th:replace="~{base :: parentparameter('Service one ','two')}">
+        </div>  -->
+   <!--pass content using fragment -->
+        <!-- <div th:replace="~{base::passContent(~{::p})}">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum non debitis dolore et natus magni beatae voluptates quo perferendis? Quis dolore maxime, delectus nulla vitae mollitia recusandae fuga ipsa voluptatibus.</p>
+        </div> -->
+
+    <!-- Call bases here :: -->
+        <div th:replace="~{base::passContent(~{::section})}">
+            <section>
+                <h1>this is dyanmic service passed to the base parent</h1> 
+            </section>
+        </div>
+</body>
+</html>
