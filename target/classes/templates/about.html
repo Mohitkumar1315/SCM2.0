@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+</head>
+<body>
+    <h1>This is about page </h1>
+    <!--using fragment insert -->
+<!--
+    <div class="Hostclass" th:replace="~{base :: parent}">
+    </div> 
+-->
+    <!--pass parameter using fragment -->
+        <!-- <div class="Host-tag" th:replace="~{base :: parentparameter('one','two')}">
+        </div> -->
+
+    <!--Used fragments on the bases of conditions...  -->
+    <div class="hostTag" th:replace="${isLogin} ? ~{base :: passContent(~{::section})} : ~{base :: Test}">
+        <section>
+            <h1>User is logged in</h1>
+            <h3>Dynamic content</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, iure debitis a id doloribus aut consequatur. Quam explicabo eveniet sequi veniam accusantium, quas, animi totam dolore pariatur molestias aliquid ipsum!</p>
+        </section>
+    </div>
+
+</body>
+</html>

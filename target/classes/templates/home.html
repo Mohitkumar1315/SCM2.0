@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <style>
+        .container{
+            margin: auto;
+            width: 50%;
+            padding: 40px;
+            background: #e3e3e3;
+        }
+    </style>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}"/>
+</head>
+<body>    
+    <div class="container">
+        <h1 class="text-3xl font-bold" data-th-text="${name}"></h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse error quidem, in iure, similique suscipit provident magni nesciunt magnam laboriosam perspiciatis assumenda consectetur! Totam, dolorum quidem architecto corporis sed explicabo.
+        </p>
+        <div>
+            <button class="px-3 py-3 rounded bg-blue-700 text-white hover:bg-blue-200">
+                Click here
+            </button>
+        </div>    
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>       
+</body>
+</html>
