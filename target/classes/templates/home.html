@@ -1,33 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-    <style>
-        .container{
-            margin: auto;
-            width: 50%;
-            padding: 40px;
-            background: #e3e3e3;
-        }
-    </style>
-    <link rel="stylesheet" data-th-href="@{'/css/output.css'}"/>
+<html lang="en"
+th:replace="~{base::parent(~{::#content},~{::title},~{::script})}">
+<head>   
+    <title>Home</title>
 </head>
-<body>    
-    <div class="container">
-        <h1 class="text-3xl font-bold" data-th-text="${name}"></h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse error quidem, in iure, similique suscipit provident magni nesciunt magnam laboriosam perspiciatis assumenda consectetur! Totam, dolorum quidem architecto corporis sed explicabo.
-        </p>
-        <div>
-            <button class="px-3 py-3 rounded bg-blue-700 text-white hover:bg-blue-200">
-                Click here
-            </button>
-        </div>    
+<body>
+    <div id="content">
+        <h1>Welcome to home page </h1>
+        <P>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, quisquam! Sed aliquid illum, numquam doloremque nulla quis id illo dolorum saepe ex omnis, similique voluptatibus expedita ea deleniti cupiditate velit.
+        </P>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>       
-</body>
+    <script>
+        console.log("This is about page");
+    </script>
+  </body>
 </html>
