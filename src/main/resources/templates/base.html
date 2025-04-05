@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+th:fragment="parent(content,title,script)"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-th-replace="${title}">SCM</title>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}"/>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+</head>
 <body>
-    <div class="fragmentClass" th:fragment="parent">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsum enim modi corporis, dolore aliquid tempora. Magni voluptatibus veritatis quaerat eos fugit architecto, ullam inventore consequatur molestias minus iusto modi!</p>
-    </div>
-    <!--for the parameter-->
-    <div class="fragmentClass" th:fragment="parentparameter(x,y)">
-        <p>This is the pass value in parameter through fragment </p>
-        <h6><span th:text="${x}"></span></h6>
-        <h6 th:text="${y}"></h6>
-    </div>
+    <!--main content here its dynmic content -->
+    <section data-th-replace="${content}">
 
-    <div class="fragementTestClass" th:fragment="passContent(content)">
-       <h>This is Example of Pass content (HTML) through fragment</h>
-       <div class="Content" th:replace="${content}">
-            
-       </div>
-    </div>  
-    <div class="ConditionTestFragementClass" th:fragment="Test">
-        <h1>This is testing fragement students </h1>
-    </div>  
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>           
+    <th:block data-th-replace="${script}"></th:block>
 </body>
 </html>
