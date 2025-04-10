@@ -25,4 +25,14 @@ public class PageController {
     {
         return "Service";
     }
+    @GetMapping("/register")
+    public String registerPage()
+    {
+        return "register";
+    }
+    @GetMapping("/test")
+    public String testMode()
+    {
+        return "darkmodeTest"; 
+       }
 }

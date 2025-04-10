@@ -6,7 +6,7 @@ th:fragment="parent(content,title,script)"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-th-replace="${title}">SCM</title>
-    <link rel="stylesheet" data-th-href="@{'/css/output.css'}"/>
+    <link rel="stylesheet" th:href="@{/css/output.css}">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -15,9 +15,9 @@ th:fragment="parent(content,title,script)"
     <!--main content here its dynmic content -->
     <section class="p-5" data-th-insert="${content}"></section>
 
-    <div class="p-4">
+    <!-- <div class="p-4">
         <h4>mkcodes1315@learning</h4>
-    </div>
+    </div> -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>           
     <th:block data-th-replace="${script}"></th:block>
 </body>
