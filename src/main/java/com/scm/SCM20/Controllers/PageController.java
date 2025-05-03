@@ -1,9 +1,9 @@
 package com.scm.SCM20.Controllers;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PostMapping;
+import com.scm.SCM20.forms.UserForm;
 @Controller
 public class PageController {
 
@@ -26,13 +26,17 @@ public class PageController {
         return "Service";
     }
     @GetMapping("/register")
-    public String registerPage()
+    public String registerPage(Model model)
     {
+        UserForm userform =new UserForm();
+        model.addAttribute ("user",userform);
         return "register";
     }
-    @GetMapping("/test")
-    public String testMode()
+    @PostMapping(value ="/do-register")
+    public String UserRegisteration() 
     {
-        return "darkmodeTest"; 
-       }
+        System.out.println("Testing the register page ...");
+        return "redirect:/register";
+    }
+    
 }

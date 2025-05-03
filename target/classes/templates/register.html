@@ -18,14 +18,15 @@
 
         <!-- Centered card -->
         <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4 flex justify-center items-center">
-            <div class="w-full bg-white border border-gray-200 rounded-lg shadow-md p-6 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <div class="w-full max-w-[600px] bg-white border border-gray-200 rounded-lg shadow-md p-6 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                    Signup Here
                 </h5>
                 <p class="font-normal text-gray-400 dark:text-gray-400">
                     Start: managing contacts on cloud ..
                 </p>
-                <form action=""class="mt-5">
+                <form data-th-action="@{/do-register}" class="mt-5" method="post">
                     <div class="mb-3"> 
                         <label 
                             for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -62,19 +63,13 @@
                         </div>
                         <!--buttons-->
                         <button
-                        class="px-4 py-2 w-36 rounded-lg bg-blue-700 text-white hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700">
+                        class="px-4 py-2 w-28 rounded-lg bg-blue-700 text-white hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700">
                         Signup
                         </button>
                         <button
-                        class="px-4 py-2 w-36 rounded-lg bg-blue-700 text-white hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700">
+                        class="px-4 py-2 w-28 rounded-lg mt-3 bg-blue-700 text-white hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700">
                         Reset
-                        </button>
-                        <!-- <button class="px-4 py-2 w-36 rounded-lg bg-sky-500 text-white hover:bg-sky-600">
-                            test
-                          </button> -->
-                          
-                      
-                            
+                        </button>                            
                 </form>
             </div>
         </div>
