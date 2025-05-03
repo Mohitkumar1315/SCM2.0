@@ -2,6 +2,8 @@ package com.scm.SCM20.services.Impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,10 @@ public class UserServiceImpl implements UserService
     @Override
     public User saveUser(User user) 
     {
+         //UserId have to genrated 
+         String userid=UUID.randomUUID().toString();
+         user.setUserId(userid);
+         //password encode
         return userRepositroy.save(user);    
     }
 
@@ -47,30 +53,27 @@ public class UserServiceImpl implements UserService
      User u=userRepositroy.save(user1);
      return Optional.ofNullable(u); 
     }
-
     @Override
     public void deleteUsesr(String userrid) {
-        User user=userRepository.findById(userid).orElseThrow(()->new ResourcesNotFoundException("User not found"));
-        userRepository.deleteById(user.getUserId());
-        
+      User u= userRepositroy.findById(userrid).orElseThrow(()->new ResourcesNotFoundException("User not found for deletetion")); 
+        userRepositroy.delete(u);
     }
 
     @Override
     public boolean isUserExist(String userid) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isUserExist'");
+       User user=userRepositroy.findById(userid).orElseThrow(()->new ResourcesNotFoundException("User not found"));
+       return user !=null?true :false;
     }
 
     @Override
     public boolean isUserExistByEmail(String email) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isUserExistByEmail'");
+       User user=userRepositroy.findByEmail(email).orElseThrow(()->new ResourcesNotFoundException("User not found with this mail");
+        return user!=null?true:false;
     }
 
     @Override
     public List<User> getAllUser() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllUser'");
+       return userRepositroy.findAll();
     }
-
+    
 }
