@@ -2,10 +2,14 @@ package com.scm.SCM20.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
+import lombok.experimental.var;
 
 @Configuration
 public class SecurityConfig {
@@ -24,5 +28,10 @@ public class SecurityConfig {
     // public UserDetailsService userDetailsService() {
     //     return new InMemoryUserDetailsManager(user, user1, u);
     // }
-
+    public AuthenticationProvider authenticationProvider()
+    {
+        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+       return daoAuthenticationProvider;     
+         
+    }
 }
