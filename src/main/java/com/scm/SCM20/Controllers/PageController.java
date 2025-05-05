@@ -14,11 +14,23 @@ import com.scm.SCM20.forms.UserForm;
 import com.scm.SCM20.services.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
+
 @Controller
 public class PageController {
     @Autowired
     UserService userService;
+    
+    @GetMapping("/")
+    public String index()
+    {
+        return "redirect:/home";
+    }
 
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+    
     @GetMapping("/home")
     public String homePage(Model model) {
         System.out.println("Hello, this is the first page for testing...");

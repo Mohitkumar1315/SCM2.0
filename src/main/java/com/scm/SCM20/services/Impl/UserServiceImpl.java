@@ -1,5 +1,6 @@
 package com.scm.SCM20.services.Impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -7,16 +8,19 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.scm.SCM20.Entity.User;
+import com.scm.SCM20.Helper.AppConstants;
 import com.scm.SCM20.Helper.ResourcesNotFoundException;
 import com.scm.SCM20.repositories.UserRepositroy;
 import com.scm.SCM20.services.UserService;
 @Service
 public class UserServiceImpl implements UserService 
 {
-
+   @Autowired
+   PasswordEncoder passwordEncoder;
     @Autowired
     private UserRepositroy userRepositroy;//property injection 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -28,6 +32,9 @@ public class UserServiceImpl implements UserService
          String userid=UUID.randomUUID().toString();
          user.setUserId(userid);
          //password encode
+         user.setPassword(passwordEncoder.encode(user.getPassword()));
+         //User Role
+         user.setRoleList(List.of(AppConstants.ROLE_USER));
         return userRepositroy.save(user);    
     }
 
