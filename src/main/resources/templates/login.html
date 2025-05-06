@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base::parent(~{::#content},~{::title},~{})}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <div id="content" class="flex justify-center mt-8">
+        <!-- Grid wrapper -->
+        <div class="grid grid-cols-12 w-full max-w-12xl mb-12">
+
+            <!-- Left empty space -->
+            <div class="col-span-4"></div>
+
+            <!-- Centered card -->
+
+            <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4 flex justify-center items-center">
+                <div
+                    class="w-full max-w-[600px] bg-white border border-gray-200 rounded-lg shadow-md p-6 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+
+                    <!--messgae here -->
+                    <div th:replace="~{messagae::messagebox}"></div>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        Login Here
+                    </h5>
+                    <p class="font-normal text-gray-400 dark:text-gray-400">
+                        Start: managing contacts on cloud ..
+                    </p>
+                    <div th:if="${param.error}" class="font-normal text-red-800 text-center my-3">
+                        Invalid username and password.</div>
+                    <div th:if="${param.logout}" class="font-normal text-green-600 text-center my-3">
+                        You have been logged out.</div>
+
+                    <form th:action="@{/authenticate}" method="post" th:object="${userform}" novalidate>
+                        <div class="mb-3">
+                            <!--for UserName  -->
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                User Name</label>
+                            <input type="text" id="gmail" name="email"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="mvkrampur1315@gmail.com" required />
+                            <!-- <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-red-600 py-2 px-1"></p> -->
+
+                        </div>
+                        <div class="mb-3">
+                            <!--for password  -->
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Password</label>
+                            <input type="password" id="password" name="password"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="" required />
+                            <!-- <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-red-600 py-2 px-1"></p> -->
+
+                        </div>
+
+                        <!--buttons-->
+                        <button type="submit"
+                            class="px-4 py-2 w-20 rounded-lg bg-blue-700 text-white hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700">
+                            Login
+                        </button>
+                        <button type="reset"
+                            class="px-4 py-2 w-20 rounded-lg mt-3 bg-blue-700 text-white hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700">
+                            Reset
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <!-- Right empty space -->
+            <div class="col-span-4"></div>
+        </div>
+    </div>
+</body>
+
+</html>

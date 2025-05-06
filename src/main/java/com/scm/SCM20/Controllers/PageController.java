@@ -58,6 +58,11 @@ public class PageController {
         model.addAttribute("userform", userform);
         return "register";
     }
+    @GetMapping("/login")
+    public String getLoginPage() {
+        return "login";
+    }
+    
 
     @RequestMapping(value = "/do-register", method = { RequestMethod.GET, RequestMethod.POST })
     public String userRegistration(@Valid @ModelAttribute("userform") UserForm userForm,
