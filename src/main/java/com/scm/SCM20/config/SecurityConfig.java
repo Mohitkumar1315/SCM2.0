@@ -16,6 +16,8 @@ import com.scm.SCM20.services.Impl.SecurityCustomeDetailsService;
 
 @Configuration
 public class SecurityConfig {
+    @Autowired
+    private OAuthenicationSuccessHandler oAuthenicationSuccessHandler;
     // User create and login using java code with in-memorey authetication
     // create default user using spring security
     // UserDetails u = User
@@ -81,7 +83,15 @@ public class SecurityConfig {
                     .logoutSuccessUrl("/login?logout=true")
                     .permitAll();
         });
+        // oauth configurations
 
+    //    httpSecurity.oauth2Login(Customizer.withDefaults());  //this is for defaultl configuration
+        //now we are do oauth config again using login form  
+       httpSecurity.oauth2Login(oauth->{
+        oauth.loginPage("/login");
+        oauth.successHandler(oAuthenicationSuccessHandler);
+
+       });
         return httpSecurity.build();
 
     }

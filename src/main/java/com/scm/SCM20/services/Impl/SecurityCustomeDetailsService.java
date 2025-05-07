@@ -19,6 +19,7 @@ public class SecurityCustomeDetailsService implements UserDetailsService
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException 
     {
+        System.out.println("user name using oauth:"+username);
         //Load our users here 
         return userRepositroy.findByEmail(username)
         .orElseThrow(()->new ResourcesNotFoundException("User not found"));
