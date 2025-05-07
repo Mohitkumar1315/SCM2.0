@@ -74,7 +74,7 @@ public class UserServiceImpl implements UserService
 
     @Override
     public boolean isUserExistByEmail(String email) {
-       User user=userRepositroy.findByEmail(email).orElseThrow(()->new ResourcesNotFoundException("User not found with this mail");
+       User user=userRepositroy.findByEmail(email).orElseThrow(()->new ResourcesNotFoundException("User not found with this mail"));
         return user!=null?true:false;
     }
 
