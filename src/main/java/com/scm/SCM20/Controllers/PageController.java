@@ -59,7 +59,8 @@ public class PageController {
         return "register";
     }
     @GetMapping("/login")
-    public String getLoginPage() {
+    public String getLoginPage(Model model) {
+        model.addAttribute("loggedInUser", null);
         return "login";
     }
     

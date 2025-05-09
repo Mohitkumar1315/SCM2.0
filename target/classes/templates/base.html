@@ -13,7 +13,15 @@
 </head>
 <body>
     <!-- Common header  -->
-    <div data-th-replace="~{navbar::navbar}"></div>
+    <!--  user is logged in : navbar -->
+    <div th:if="${loggedInUser}">
+        <div data-th-replace="~{user/user_navbar::user-navbar}"></div>
+      </div>
+  
+      <!-- user is not logged : navbar -->
+      <div th:unless="${loggedInUser}">
+        <div data-th-replace="~{navbar :: navbar}"></div>
+      </div>
     <!--main content here its dynmic content -->
     <section class="p-5" data-th-insert="${content}"></section>
 
