@@ -83,7 +83,7 @@ public class SecurityConfig {
                     .permitAll();
         });
  // oauth configurations
-
+//
     //    httpSecurity.oauth2Login(Customizer.withDefaults());  //this is for defaultl configuration
         //now we are do oauth config again using login form  
        httpSecurity.oauth2Login(oauth->{
