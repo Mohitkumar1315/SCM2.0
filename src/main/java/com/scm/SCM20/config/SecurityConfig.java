@@ -82,7 +82,7 @@ public class SecurityConfig {
                     .logoutSuccessUrl("/login?logout=true")
                     .permitAll();
         });
-        // oauth configurations
+ // oauth configurations
 
     //    httpSecurity.oauth2Login(Customizer.withDefaults());  //this is for defaultl configuration
         //now we are do oauth config again using login form  

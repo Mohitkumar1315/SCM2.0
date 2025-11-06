@@ -47,6 +47,7 @@ public class PageController {
 
     @GetMapping("/service")
     public String servicePage() {
+        System.out.println("Service test page");
         return "Service";
     }
 

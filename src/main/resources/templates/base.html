@@ -23,7 +23,11 @@
         <div data-th-replace="~{navbar :: navbar}"></div>
       </div>
     <!--main content here its dynmic content -->
-    <section class="p-5" data-th-insert="${content}"></section>
+    <!-- main content here its dynamic content -->
+     <section th-if="{loggedInUser}" class="pt-56 p-5 -mt-14" data-th-insert="${content}"></section>
+      <!-- <section th:unless="${loggedInUser}"  class="pt-56 p-5" data-th-insert="${content}"></section> -->
+  <!-- <section class="pt-56 p-5" data-th-insert="${content}"></section> -->
+
 
     <!-- <div class="p-4">
         <h4>mkcodes1315@learning</h4>

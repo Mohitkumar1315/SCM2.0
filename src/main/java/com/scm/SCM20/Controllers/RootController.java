@@ -1,12 +1,10 @@
 package com.scm.SCM20.Controllers;
-
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
 import com.scm.SCM20.Entity.User;
 import com.scm.SCM20.Helper.Helper;
 import com.scm.SCM20.services.UserService;
